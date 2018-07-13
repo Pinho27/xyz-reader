@@ -62,6 +62,13 @@ public class ArticleListActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        final ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setTitle("");
+        actionBar.setIcon(R.drawable.logo);
+
         mSwipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
 
         mRecyclerView = findViewById(R.id.recycler_view);
@@ -79,10 +86,6 @@ public class ArticleListActivity extends AppCompatActivity implements
         });
 
         snackbar = Snackbar.make(mSwipeRefreshLayout, "Loading...", Snackbar.LENGTH_INDEFINITE);
-
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("");
-        getSupportActionBar().setIcon(R.drawable.logo);
     }
 
     private void refresh() {
